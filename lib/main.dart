@@ -1,3 +1,4 @@
+import 'package:dc_qr_test/decodeMessage.dart';
 import 'package:flutter/material.dart';
 import 'package:qrcode_flutter/qrcode_flutter.dart';
 import 'package:image_picker/image_picker.dart';
@@ -74,12 +75,21 @@ class _MyAppState extends State<_MyApp> with TickerProviderStateMixin {
             onPressed: () async {
               PickedFile? image =
                   await ImagePicker().getImage(source: ImageSource.gallery);
-              var qrCodeResult =
-                  await QRCaptureController.getQrCodeByImagePath(image!.path);
-              print('here I log qrCodeResult $qrCodeResult');
-              setState(() {
-                _captureText = qrCodeResult.join('\n');
-              });
+              QRCaptureController.getQrCodeByImagePath(image!.path)
+                  .then((code) => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                DecodePage(title: 'hhh', codeToDecode: code[0]),
+                          ),
+                        )
+                      });
+
+              //print('here I log qrCodeResult $qrCodeResult');
+              //setState(() {
+              //  _captureText = qrCodeResult.join('\n');
+              //});
             },
             child: Text('photoAlbum', style: TextStyle(color: Colors.white)),
           ),
