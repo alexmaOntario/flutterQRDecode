@@ -52,7 +52,7 @@ class _MyAppState extends State<_MyApp> with TickerProviderStateMixin {
     super.initState();
 
     _controller.onCapture((data) {
-      print('$data');
+      print('here I log data $data');
       setState(() {
         _captureText = data;
       });
@@ -76,6 +76,7 @@ class _MyAppState extends State<_MyApp> with TickerProviderStateMixin {
                   await ImagePicker().getImage(source: ImageSource.gallery);
               var qrCodeResult =
                   await QRCaptureController.getQrCodeByImagePath(image!.path);
+              print('here I log qrCodeResult $qrCodeResult');
               setState(() {
                 _captureText = qrCodeResult.join('\n');
               });
