@@ -60,6 +60,7 @@ class _DecodePageState extends State<DecodePage> {
         child: const Icon(Icons.arrow_upward),
         onPressed: () {
           var code = widget.codeToDecode;
+          log('shc code is $code');
           _controller.evaluateJavascript('fromFlutter("$code")');
           //$widget.codeToDecode
         },
