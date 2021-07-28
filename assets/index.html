@@ -19,27 +19,28 @@
                     return "";
                 } else if (typeof(data) === 'string' && data.startsWith("CRED:")) {
                      verifyDisplayCRED(data).then((a)=>{messageHandler.postMessage(a)}); 
-                } 
+                } else if (typeof(data) === 'string' && data.startsWith("shc:")) {
+                    //verifyDisplaySHC(data);
              }
 
              
 
-            async function verifyDisplayCRED(data) {
+            /*async function verifyDisplayCRED(data) {
                 let uri = data.substring(data.indexOf("CRED:"));
                 //debugger;
                 const [schema, type, version, signatureBase32NoPad, pubKeyLink, payloadStr] = await CRED.unpack(uri);  
                 const payload = await CRED.unpackAndVerify(uri);
                 const fields = await CRED.mapHeaders(payload, type, version);
 
-                let signedBy;
+                let signedBy = '';
                 if (payload) {
                     signedBy = 'Signed by ' + pubKeyLink + (fields['date'] || fields['issuanceDate'] ? ' on ' + parseDate(fields['date'] ?  fields['date'] : fields['issuanceDate']) : '');
                 } else {
                     signedBy = "Credential Invalid or Not Supported";
                 }
-                debugger;
-                return signedBy;
-            }
+                const result = {Fields: fields, Signature: signedBy};
+                return JSON.stringify(result);
+            }*/
         </script>
 <!--sdk-->
 <script type="text/javascript">

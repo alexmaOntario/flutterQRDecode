@@ -40,7 +40,10 @@ class _DecodePageState extends State<DecodePage> {
           JavascriptChannel(
               name: 'messageHandler',
               onMessageReceived: (JavascriptMessage message) {
-                //log(message.message);
+                log(message.message);
+                //const obj = fromJson(jsonDecode(message.message));
+                //var str = message.message.Signature;
+
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(message.message),
