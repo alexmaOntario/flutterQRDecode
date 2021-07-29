@@ -80,8 +80,8 @@ class _MyAppState extends State<_MyApp> with TickerProviderStateMixin {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>
-                                DecodePage(title: 'hhh', codeToDecode: code[0]),
+                            builder: (context) => DecodePage(
+                                title: 'Decode QR Code', codeToDecode: code[0]),
                           ),
                         )
                       });
