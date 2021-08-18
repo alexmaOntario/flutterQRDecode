@@ -36,7 +36,7 @@ class _DecodePageState extends State<DecodePage> {
       body: WebView(
         initialUrl: 'about:blank',
         javascriptMode: JavascriptMode.unrestricted,
-        javascriptChannels: Set.from([
+        javascriptChannels: {
           JavascriptChannel(
               name: 'messageHandler',
               onMessageReceived: (JavascriptMessage message) {
@@ -50,7 +50,7 @@ class _DecodePageState extends State<DecodePage> {
                   ),
                 );
               })
-        ]),
+        },
         onWebViewCreated: (WebViewController webviewController) {
           _controller = webviewController;
           _loadHtmlFromAssets();

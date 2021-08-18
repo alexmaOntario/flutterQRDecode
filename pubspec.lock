@@ -113,14 +113,14 @@ packages:
       name: image_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.2"
+    version: "0.8.3+2"
   image_picker_for_web:
     dependency: transitive
     description:
       name: image_picker_for_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.1"
+    version: "2.1.2"
   image_picker_platform_interface:
     dependency: transitive
     description:
@@ -180,9 +180,9 @@ packages:
   qrcode_flutter:
     dependency: "direct main"
     description:
-      name: qrcode_flutter
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: qrcode_flutter
+      relative: true
+    source: path
     version: "3.0.0-nullsafety.0"
   sky_engine:
     dependency: transitive
